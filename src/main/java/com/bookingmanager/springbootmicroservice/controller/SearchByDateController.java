@@ -13,8 +13,9 @@ public class SearchByDateController {
     @Resource
     private SearchByDateService searchByDateService;
 
-    @GetMapping( "/searchByDate")
-    public ArrayList<Room> searchByDate(@RequestParam int date){
+    @GetMapping( "/searchByDate/{date}")
+    public ArrayList<Room> searchByDate(@PathVariable("date") int date){
+        // url http://localhost:8080/api/searchByDate/20100115
         return searchByDateService.searchByDate(date);
     }
 

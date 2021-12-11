@@ -18,7 +18,7 @@ public class SaveOrderController {
     private SaveOrderService saveOrderService;
 
     @PostMapping( "/saveorder")
-    public ArrayList<Room> saveOrder(@RequestBody Order order){
+    public ArrayList<Room> saveOrder(Order order){
         return saveOrderService.saveOrder(order);
     }
 

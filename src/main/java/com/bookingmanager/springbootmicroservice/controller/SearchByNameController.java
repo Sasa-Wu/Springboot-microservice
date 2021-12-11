@@ -2,10 +2,7 @@ package com.bookingmanager.springbootmicroservice.controller;
 
 import com.bookingmanager.springbootmicroservice.entity.Room;
 import com.bookingmanager.springbootmicroservice.service.SearchByNameService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -16,9 +13,9 @@ public class SearchByNameController {
     @Resource
     private SearchByNameService searchByNameService;
 
-    @GetMapping( "/searchByName")
-    public ArrayList<Room> searchByDate(@RequestParam String name){
-
+    @GetMapping( "/searchByName/{name}")
+    public ArrayList<Room> searchByDate(@PathVariable("name") String name){
+        // url http://localhost:8080/api/searchByName/Jeff
         return searchByNameService.searchByName(name);
     }
 
